@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON 数据交换格式</title>
+  </head>
+  <body>
+    <script>
+      // json 的 对象格式
+      let json1 = {
+        name: "zs",
+        age: 20,
+        gender: "男",
+        address: null,
+        hobby: ["吃饭", "睡觉", "打豆豆"],
+      };
+
+      // json 的 数组格式
+      // ["javascript", "ts", "vue"]
+      // [(300, 100, 600.5)]
+      // [(true, false, null)]
+      // [({ name: "ww", age: 10 }, { name: "kk", age: 20 })]
+      // [(["香蕉", "苹果", "芒果"], [14, 30, 18])];
+
+      // JSON 对象  和  JS 对象 的关系
+      //这是一个对象
+      var obj = { k: "Hello", o: "World" };
+
+      //这是一个 JSON 字符串，本质是一个字符串
+      var json = '{"k": "Hello", "o": "World"}';
+
+      // JSON 和 JS对象的互转
+
+      // 要实现 从 JSON字符串 转换为 JS对象 ，使用 JSON.parse() 方法   JSON反序列化
+      var obj = JSON.parse('{"k": "Hello", "o": "World"}');
+      console.log(obj); // {k: 'Hello', o: 'World'}
+      console.log(typeof obj); // Object
+
+      // 要实现 从 JS对象 转换为 JSON字符串 ，使用 JSON.stringify() 方法  JSON序列化
+      let json2 = JSON.stringify({ k: "Hello", o: "World" });
+      console.log(json2); // {"k":"Hello","o":"World"}
+      console.log(typeof json2);  // string
+    </script>
+  </body>
+</html>

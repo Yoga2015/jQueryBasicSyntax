@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1、创建 XMLHttpRequest 对象的实例
+      let xhr = new XMLHttpRequest();
+      // 2、调用 xhr.open() 函数，创建 一个请求 ，指定 请求方式 和 url 地址
+      // xhr.open("GET", "http://www.liulongbin.top:3006/api/getbooks");        // 不带参数的 URL 地址
+      // xhr.open("GET", "http://www.liulongbin.top:3006/api/getbooks?id=1");  // 带一个参数的 URL 地址
+      xhr.open(
+        "GET",
+        "http://www.liulongbin.top:3006/api/getbooks?id=2&bookname=红楼梦" // 带两个参数的 URL 地址
+      );
+      // 3、调用 xhr.send() 函数 ，发起请求
+      xhr.send();
+      // 4、监听 onreadystatechange 事件 ，在这个事件中我们可以拿到服务器响应回来的数据
+      xhr.onreadystatechange = function () {
+        // 4.1、监听 xhr 对象的请求状态 readyState ; 与服务器响应的状态 status
+        // xhr.readyState === 4  代表着  Ajax 请求完成，这意味着 数据传输 已经彻底 完成 或 失败。
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          //  4.2、打印 服务器响应回来的数据
+          console.log(xhr.responseText);
+        }
+      };
+    </script>
+  </body>
+</html>

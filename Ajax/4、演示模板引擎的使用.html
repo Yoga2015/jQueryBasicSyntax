@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>演示模板引擎的使用</title>
+    <!-- 1、导入 art-template 模板引擎  -->
+    <!-- 在window 全局, 就多了一个函数，叫 template('模板的id', 需要渲染的数据对象) -->
+    <script src="./lib/template-web.js"></script>
+    <script src="./lib/jquery.js"></script>
+  </head>
+  <body>
+    <!-- 5.1 指定位置 放置 渲染出来的 HTML结构 -->
+    <div id="container"></div>
+
+    <!-- 3、定义模板 -->
+    <!-- 3.1 模板的HTML结构 ，必须定义到 script 中 -->
+    <script type="text/html" id="html-template">
+      <h1>{{name}} ---- {{age}}</h1>
+      <p>{{@test}}</p>
+    </script>
+
+    <!-- <script type="text/javascript"></script>   同下：-->
+    <script>
+      // 2、定义 需要渲染的数据
+      let data = { name: "lisi", age: 20, test: "<h5>我是谁！</h5>" };
+
+      // 4、调用 template 函数
+      let htmlStr = template("html-template", data);
+      console.log(htmlStr);
+
+      // 5、渲染HTML结构 ，首先你得先获取到DOM元素
+      $("#container").html(htmlStr);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>监听表单提交事件 和 快速获取表单中的数据</title>
+    <script src="./lib/jquery.js"></script>
+  </head>
+  <body>
+
+    <form action="/login" method="post" target="_self" id="form1">
+      <input type="text" name="username" />
+      <input type="password" name="password" />
+      <input type="radio" name="radio_me" checked />
+      <input type="checkbox" name="remember_me" checked />
+      <select name="selectName">
+        <!-- option 里定义 selected="selected" 属性时，当前即为默认选中项 -->
+        <option selected="selected">Beijing</option>
+        <option>ShangHai</option>
+        <option>GuangZhou</option>
+        <option>ShenZhen</option>
+      </select>
+      <button type="submit">提交</button>
+    </form>
+
+    <script>
+      // 1、监听 表单提交事件
+      $("#form1").on("submit", function (e) {
+        console.log("监听到了表单提交事件");
+        // 阻止 表单的提交 和 页面的跳转
+        e.preventDefault();
+
+        // 2、快速获取表单中的数据
+        // serialize() 函数 ：可以 一次性获取 到 表单中的所有的数据
+        // 在使用 serialize() 函数快速获取表单数据时，必须为每个表单元素添加 name 属性！
+        const formData = $("#form1").serialize();
+        console.log(formData);
+      });
+    </script>
+
+  </body>
+</html>

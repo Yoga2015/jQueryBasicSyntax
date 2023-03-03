@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XMLHttpRequest发起POST请求</title>
+  </head>
+  <body>
+    
+    <script>
+
+      // 1、创建 XMLHttpRequest 对象 的实例 xhr
+      const xhr = new XMLHttpRequest();
+      // 2、调用 xhr.open( ) 函数 创建一个请求，指定 请求方式 和 URL地址 ,
+      xhr.open("POST", "http://www.liulongbin.top:3006/api/addbook");
+      // 3、设置 Content-Type 属性（固定写法）
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      // 4、调用 xhr.send( ) 函数 发起 请求，同时 将 数据 以 查询字符串 的形式，提交给服务器
+      xhr.send("bookname=水浒传&author=施耐奄&publisher=天津出版社");
+      // 5、监听 xhr.onreadystatechange 事件，在这个事件中我们可以拿到服务器响应回来的数据
+      xhr.onreadystatechange = function () {
+        // 5.1、判断 xhr 对象的请求状态 readyState   与 服务器响应的状态 status
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // 5.2、打印 服务器响应回来的数据
+          console.log(xhr.responseText);
+        }
+      };
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>评论列表</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css" />
+    <script src="./lib/jquery.js"></script>
+    <script src="./js/comment.js"></script>
+  </head>
+  <body style="padding: 15px">
+    <!-- 评论面板  bs3-panel:primary -->
+    <div class="panel panel-primary" style="padding: 15px">
+     <div class="panel-heading">
+        <h3 class="panel-title">发表评论</h3>
+     </div>
+
+     <form class="panel-body" id="formAddCmt">
+      <div>评论人：</div>
+      <input type="text" name="username" class="form-control" placeholder="请输入评论人"/>
+
+      <div>评论内容:</div>
+      <textarea name="content" class="form-control" cols="30" rows="3">
+      </textarea>
+      <button type="submit" class="btn btn-primary">发表评论</button>
+     </form>
+
+    </div>
+
+    <!-- 评论列表  bs3-list-group:badges 列表组-->
+    <ul class="list-group" id="cmt-list">
+      <li class="list-group-item">
+        <span class="badge" style="background-color: yellowgreen">评论时间：</span>
+        <span class="badge" style="background-color: aqua">评论人：</span>
+        Item 1
+      </li>
+    </ul>
+  </body>
+</html>
