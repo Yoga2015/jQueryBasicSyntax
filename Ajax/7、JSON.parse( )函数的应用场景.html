@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>演示JSON.parse( )函数的应用场景</title>
+  </head>
+  <body>
+    <script>
+      // 1、创建 XMLHttpRequest 对象 的实例 xhr
+      let xhr = new XMLHttpRequest();
+      // 2、调用 xhr.open( ) 函数 创建一个请求，指定请求方式和URL地址 ,地址后面可以加上 查询字符串 相当于data
+      xhr.open("GET", "http://www.liulongbin.top:3006/api/getbooks");
+      // 3、调用 xhr.send( ) 函数 发起 请求
+      xhr.send();
+      // 4、监听 xhr.onreadystatechange 事件，在这个事件中我们可以拿到服务器响应回来的数据
+      xhr.onreadystatechange = function () {
+        // 4.1、监听 xhr 对象的请求状态 readyState ; 与服务器响应的状态 status
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          console.log(xhr.responseText); // 打印 服务器响应回来的数据 是 一个 JSON 对象
+          console.log(typeof xhr.responseText); // 数据类型是 string
+
+          // 将响应回来的 JSON对象数据 转换为 js 对象 ， JSON 反序列化
+          const result = JSON.parse(xhr.responseText);
+          console.log(result);
+        }
+      };
+    </script>
+  </body>
+</html>

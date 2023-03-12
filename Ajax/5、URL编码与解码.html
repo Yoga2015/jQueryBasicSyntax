@@ -10,17 +10,17 @@
     <div>
       <h3>为什么要对 URL地址 进行编码、解码</h3>
       URL 地址 中，只允许 出现英文相关的字母、标点符号、数字。<br />
-      如果 URL中 需要包含中文这样的字符，则必须对中文字符进行 编码（转义）。
-      <br />
+      如果 URL中 需要包含中文这样的字符，则必须对中文字符进行 编码（转义）。<br />
       URL 编码 ，即 需要 使用 英文字符去表示非英文字符。 <br />
     </div>
+
     <script>
       let str = "威哥";
       let str2 = encodeURI(str);
-      console.log("str2 编码后是:" + str2);
+      console.log("str2 编码后是:" + str2); // str2 编码后是:%E5%A8%81%E5%93%A5
 
       let str3 = decodeURI("%E5%A8%81%E5%93%A5");
-      console.log("str3 解码后是:" + str3);
+      console.log("str3 解码后是:" + str3); // str3 解码后是:威哥
     </script>
   </body>
 </html>

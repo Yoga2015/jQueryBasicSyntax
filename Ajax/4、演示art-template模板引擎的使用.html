@@ -8,22 +8,24 @@
     <!-- 1、导入 art-template 模板引擎  -->
     <!-- 在window 全局, 就多了一个函数，叫 template('模板的id', 需要渲染的数据对象) -->
     <script src="./lib/template-web.js"></script>
+    <!-- 2、导入 jQuery -->
     <script src="./lib/jquery.js"></script>
   </head>
   <body>
     <!-- 5.1 指定位置 放置 渲染出来的 HTML结构 -->
-    <div id="container"></div>
+    <div id="container">
+      <h1>基于模板引擎技术，把数据渲染到页面上</h1>
+    </div>
 
-    <!-- 3、定义模板 -->
-    <!-- 3.1 模板的HTML结构 ，必须定义到 script 中 -->
+    <!-- 4.1 定义模板，模板的HTML结构 ，必须定义到 script 中 -->
     <script type="text/html" id="html-template">
       <h1>{{name}} ---- {{age}}</h1>
       <p>{{@test}}</p>
     </script>
 
-    <!-- <script type="text/javascript"></script>   同下：-->
+    <!-- <script type="text/javascript"></script> 同下： -->
     <script>
-      // 2、定义 需要渲染的数据
+      // 3、定义 需要渲染到页面上的数据
       let data = { name: "lisi", age: 20, test: "<h5>我是谁！</h5>" };
 
       // 4、调用 template 函数
